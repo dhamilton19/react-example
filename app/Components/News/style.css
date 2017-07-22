@@ -1,0 +1,20 @@
+.articles {
+  width: 50%;
+}
+
+.article-container {
+  display: flex;
+  width: 100%;
+}
+
+.article-img-container {
+  align-self: center;
+}
+
+.article-info-container {
+  padding: 20px;
+}
+
+.article-date {
+  text-align: right;
+}

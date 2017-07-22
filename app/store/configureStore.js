@@ -1,16 +1,16 @@
+import 'regenerator-runtime/runtime';
+
 import { applyMiddleware, createStore } from 'redux';
 
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas';
+import rootReducer from '../reducers/root';
+import rootSaga from '../sagas/root';
 
 const sagaMiddleware = createSagaMiddleware();
 let middleware;
 
-const enableLogger = false;
-
-if (__DEV__ || enableLogger) {
+if (__DEV__) {
   middleware = applyMiddleware(sagaMiddleware, createLogger());
 } else {
   middleware = applyMiddleware(sagaMiddleware);

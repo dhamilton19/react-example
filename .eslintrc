@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "classes": true,
+    "es6": true,
+    "jsx": true
+  },
+  "rules": {
+    "arrow-body-style": [0],
+    "comma-dangle": [1, "always-multiline"],
+    "import/no-extraneous-dependencies": [0],
+    "import/no-named-as-default": [0],
+    "max-len": [1, 180, 4],
+    "no-script-url": [0],
+    "react/jsx-no-bind": [0]
+  }
+}
