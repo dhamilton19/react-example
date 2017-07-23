@@ -8,13 +8,13 @@
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
-    "prebuild": "npm-run-all --parallel clean-dist lint",
+    "prebuild": "npm-run-all --parallel clean-dist",
     "build": "cross-env NODE_ENV=production node tools/build.js",
     "lint": "eslint --max-warnings 0 ./app --ext .js*",
     "lint:fix": "eslint --max-warnings 0 --fix ./app --ext .js*",
     "clean-dist": "npm run remove-dist & mkdir dist",
     "remove-dist": "rimraf ./dist",
-    "start": "node localIndex.js",
+    "start": "cross-env NODE_ENV=production node localIndex.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart:dev": "npm-run-all --parallel start-message remove-dist",
     "start:dev": "cross-env NODE_ENV=development UV_THREADPOOL_SIZE=100 babel-node ./server/index.js",
@@ -29,6 +29,7 @@
     "babel-loader": "~6.0.1",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.3",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "babel-preset-env": "^1.6.0",
@@ -95,10 +96,7 @@
     "semantic-ui-react": "^0.71.1",
     "xml2js": "^0.4.17"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "pre-commit": ["lint", "test"],
   "engines": {
     "node": "8.2.1"
   }
