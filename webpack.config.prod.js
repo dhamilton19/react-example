@@ -15,6 +15,7 @@ const GLOBALS = {
 };
 
 module.exports = {
+  context: path.join(__dirname, '/app'),
   resolve: {
     extensions: ['*', '.css', '.js', '.jsx', '.json'],
   },
