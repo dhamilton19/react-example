@@ -18,6 +18,10 @@ module.exports = {
   context: __dirname,
   resolve: {
     extensions: ['*', '.css', '.js', '.jsx', '.json'],
+    alias: {
+      Components: path.resolve(__dirname, 'app/components/'),
+      Containers: path.resolve(__dirname, 'app/containers/'),
+    },
   },
   devtool: 'hidden-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   entry: path.resolve(__dirname, 'app/app.jsx'),
