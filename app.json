@@ -1,0 +1,18 @@
+{
+  "name": "react-example",
+  "scripts": {
+  },
+  "env": {
+    "PORT": "80"
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
