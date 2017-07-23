@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Loader } from 'semantic-ui-react';
 import Header from '../Header';
 import News from '../News';
 import './style.css';
@@ -15,9 +14,7 @@ class App extends Component {
     return (
       <div className="main">
         <Header />
-        {this.props.articles
-          ? <News articles={this.props.articles} />
-          : <Loader>Loading</Loader>}
+        {this.props.articles && <News articles={this.props.articles} />}
       </div>
     );
   }

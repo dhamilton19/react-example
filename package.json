@@ -22,7 +22,7 @@
     "test": "cross-env NODE_ENV=production jest --coverage",
     "test:debug": "cross-env NODE_ENV=production node --inspect --debug-brk ./node_modules/jest/bin/jest.js --runInBand --env jest-environment-node-debug"
   },
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "~6.4.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "~6.0.4",
@@ -67,9 +67,7 @@
     "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-md5-hash": "0.0.5"
-  },
-  "dependencies": {
+    "webpack-md5-hash": "0.0.5",
     "babel-core": "^6.13.2",
     "babel-plugin-react-transform": "~2.0.2",
     "babel-polyfill": "^6.20.0",
@@ -92,11 +90,12 @@
     "redux-saga": "^0.15.5",
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
-    "semantic-ui-css": "^2.2.11",
-    "semantic-ui-react": "^0.71.1",
     "xml2js": "^0.4.17"
   },
-  "pre-commit": ["lint", "test"],
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "engines": {
     "node": "8.2.1"
   }
