@@ -21,7 +21,7 @@
     "debug": "cross-env NODE_ENV=development UV_THREADPOOL_SIZE=100 node --inspect --debug ./server/index.js",
     "test": "cross-env NODE_ENV=production jest --coverage",
     "test:debug": "cross-env NODE_ENV=production node --inspect --debug-brk ./node_modules/jest/bin/jest.js --runInBand --env jest-environment-node-debug",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "heroku-postbuild": "webpack -p --config ./webpack.config.prod.js --progress"
   },
   "dependencies": {
     "autoprefixer": "~6.4.0",
