@@ -1,6 +1,8 @@
 {
   "name": "react-example",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "npm run build"
+  },
   "env": {
     "PORT": "80",
     "NODE_ENV": "production"
