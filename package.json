@@ -20,7 +20,8 @@
     "start:dev": "cross-env NODE_ENV=development UV_THREADPOOL_SIZE=100 babel-node ./server/index.js",
     "debug": "cross-env NODE_ENV=development UV_THREADPOOL_SIZE=100 node --inspect --debug ./server/index.js",
     "test": "cross-env NODE_ENV=production jest --coverage",
-    "test:debug": "cross-env NODE_ENV=production node --inspect --debug-brk ./node_modules/jest/bin/jest.js --runInBand --env jest-environment-node-debug"
+    "test:debug": "cross-env NODE_ENV=production node --inspect --debug-brk ./node_modules/jest/bin/jest.js --runInBand --env jest-environment-node-debug",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "dependencies": {
     "autoprefixer": "~6.4.0",
@@ -92,10 +93,7 @@
     "request": "^2.81.0",
     "xml2js": "^0.4.17"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "pre-commit": ["lint", "test"],
   "engines": {
     "node": "8.2.1"
   }
