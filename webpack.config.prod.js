@@ -16,7 +16,7 @@ const GLOBALS = {
 
 module.exports = {
   resolve: {
-    extensions: ['', '.css', '.js', '.jsx', '.json'],
+    extensions: ['*', '.css', '.js', '.jsx', '.json'],
   },
   devtool: 'hidden-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
   entry: path.resolve(__dirname, 'app/app.jsx'),
