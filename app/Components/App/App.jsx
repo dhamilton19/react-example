@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../Header';
-import News from '../News';
+import Header from '../Header/Header.jsx';
+import News from '../News/News.jsx';
 import './style.css';
 
 class App extends Component {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../components/App';
+import App from '../components/App/App.jsx';
 import { fetchArticles } from '../actions/articlesActions';
 
 const mapStateToProps = state => ({
