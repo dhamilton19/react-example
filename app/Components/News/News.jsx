@@ -17,17 +17,14 @@ const renderArticle = article => {
             <img src={article.img} className="article-img" />
           </div>
           <div className="article-info-container">
-            <h3>
+            <h3 className="article-title">
               {article.title}
             </h3>
             <h5>
               {article.description}
             </h5>
-            <h5 className="article-author">
-              by {article.author}
-            </h5>
             <h5 className="article-date">
-              {article.date}
+              by {article.author} | {article.date}
             </h5>
           </div>
         </div>

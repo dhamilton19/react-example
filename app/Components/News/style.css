@@ -6,10 +6,16 @@
   display: flex;
   width: 100%;
   margin: 15px;
+  text-decoration: none;
+  color: #312b2b;
 }
 
 .article-container:hover {
   background-color: #ccc;
+}
+
+.article-title {
+  text-transform: uppercase;
 }
 
 .article-img-container {
