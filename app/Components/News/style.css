@@ -5,10 +5,19 @@
 .article-container {
   display: flex;
   width: 100%;
+  margin: 15px;
+}
+
+.article-container:hover {
+  background-color: #ccc;
 }
 
 .article-img-container {
   align-self: center;
+}
+
+.article-img {
+  height: 120px;
 }
 
 .article-info-container {
@@ -16,5 +25,9 @@
 }
 
 .article-date {
+  text-align: right;
+}
+
+.article-author {
   text-align: right;
 }

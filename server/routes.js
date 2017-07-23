@@ -1,18 +1,15 @@
 const request = require('request');
 const parseString = require('xml2js').parseString;
 
-function handleWebServiceCall() {
+function handleWebServiceCall(url) {
   return new Promise((resolve, reject) => {
-    request(
-      'https://www.nasa.gov/rss/dyn/breaking_news.rss',
-      (error, response, body) => {
-        if (response.statusCode === 200) {
-          resolve(body);
-        } else {
-          reject({ error });
-        }
-      },
-    );
+    request(url, (error, response, body) => {
+      if (response.statusCode === 200) {
+        resolve(body);
+      } else {
+        reject({ error });
+      }
+    });
   });
 }
 
@@ -52,20 +49,44 @@ function sortArticles(articles) {
   return articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+function getAuthor(data) {
+  return JSON.parse(data).ubernode.name;
+}
+
+function getAuthors(articles) {
+  const serviceCalls = [];
+  return new Promise(resolve => {
+    articles.forEach(({ id }) => {
+      serviceCalls.push(
+        handleWebServiceCall(
+          `https://www.nasa.gov/api/1/record/node/${id}.json`,
+        ),
+      );
+    });
+    Promise.all(serviceCalls).then(data => {
+      const newArticles = articles.map((article, i) =>
+        Object.assign({}, article, { author: getAuthor(data[i]) }),
+      );
+      resolve(newArticles);
+    });
+  });
+}
+
 module.exports = (app, path) => {
   app.get('/articles', (req, res) => {
-    handleWebServiceCall()
+    handleWebServiceCall('https://www.nasa.gov/rss/dyn/breaking_news.rss')
       .then(result => {
         return parseXMLToJSON(result);
       })
       .then(result => {
-        res.send(
-          JSON.stringify(
-            sortArticles(
-              filterArticles(mapArticles(resolveNewsItems(result)), 'space'),
-            ),
+        return getAuthors(
+          sortArticles(
+            filterArticles(mapArticles(resolveNewsItems(result)), 'space'),
           ),
         );
+      })
+      .then(result => {
+        res.send(JSON.stringify(result));
       })
       .catch(() => {
         res.sendStatus(500);
