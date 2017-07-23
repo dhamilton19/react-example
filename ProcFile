@@ -1,1 +1,1 @@
-web: node localIndex.js
+web: npm start
