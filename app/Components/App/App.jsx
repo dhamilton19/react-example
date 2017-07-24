@@ -27,7 +27,7 @@ class App extends Component {
     } else if (this.props.articles.length > 0) {
       return <News articles={this.props.articles} />;
     }
-    return <p>Sorry, there are no search results</p>;
+    return <p>Sorry, there are no search results.</p>;
   }
 
   render() {

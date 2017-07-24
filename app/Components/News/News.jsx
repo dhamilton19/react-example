@@ -4,7 +4,7 @@ import './style.css';
 
 const renderArticle = article => {
   return (
-    <div key={article['dc:identifier']}>
+    <div key={article.id}>
       <a
         href={article.url}
         className="article-container"

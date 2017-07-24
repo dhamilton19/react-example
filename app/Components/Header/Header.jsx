@@ -10,7 +10,7 @@ function Header({ query, onChange, onSearch }) {
         <input
           className="header-input"
           type="text"
-          placeholder="Search news titles.."
+          placeholder="Search news titles..."
           value={query}
           onChange={onChange}
         />

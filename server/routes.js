@@ -30,7 +30,7 @@ function resolveNewsItems(result) {
 
 function mapArticles(articles) {
   return articles.map(article => ({
-    img: article.enclosure[0].$.url,
+    img: article.enclosure[0].$.url.replace('http', 'https'),
     title: article.title[0],
     description: article.description[0],
     id: article['dc:identifier'][0],
