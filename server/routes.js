@@ -41,7 +41,7 @@ function mapArticles(articles) {
 
 function filterArticles(articles, match) {
   return articles.filter(article =>
-    article.title.toLowerCase().includes(match),
+    article.title.toLowerCase().includes(match.toLowerCase()),
   );
 }
 
@@ -73,7 +73,7 @@ function getAuthors(articles) {
 }
 
 module.exports = (app, path) => {
-  app.get('/articles', (req, res) => {
+  app.post('/articles', (req, res) => {
     handleWebServiceCall('https://www.nasa.gov/rss/dyn/breaking_news.rss')
       .then(result => {
         return parseXMLToJSON(result);
@@ -81,7 +81,10 @@ module.exports = (app, path) => {
       .then(result => {
         return getAuthors(
           sortArticles(
-            filterArticles(mapArticles(resolveNewsItems(result)), 'space'),
+            filterArticles(
+              mapArticles(resolveNewsItems(result)),
+              req.body.query,
+            ),
           ),
         );
       })

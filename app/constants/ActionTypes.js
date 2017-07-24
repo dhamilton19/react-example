@@ -4,4 +4,7 @@ const createConstants = actionName => ({
   [`${actionName}_FAILED`]: `${actionName}_FAILED`,
 });
 
-export default { ...createConstants('FETCH_ARTICLES') };
+export default {
+  ...createConstants('FETCH_ARTICLES'),
+  UPDATE_SEARCH_QUERY: 'UPDATE_SEARCH_QUERY',
+};

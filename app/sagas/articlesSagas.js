@@ -3,9 +3,9 @@ import { getArticles } from '../service/articlesApi';
 import { populateArticles } from '../actions/articlesActions';
 import ActionTypes from '../constants/ActionTypes';
 
-function* fetchArticles() {
+function* fetchArticles(query) {
   try {
-    const articles = yield call(getArticles);
+    const articles = yield call(getArticles, query);
     yield put(populateArticles(articles));
   } catch (e) {
     yield put({ type: ActionTypes.FETCH_ARTICLES_FAILED, message: e.message });

@@ -4,10 +4,9 @@ import './style.css';
 
 const renderArticle = article => {
   return (
-    <div>
+    <div key={article['dc:identifier']}>
       <a
         href={article.url}
-        key={article['dc:identifier']}
         className="article-container"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,12 +33,10 @@ const renderArticle = article => {
   );
 };
 
-const renderArticles = articles => articles.map(renderArticle);
-
 function News({ articles }) {
   return (
     <div className="articles">
-      {renderArticles(articles)}
+      {articles.map(renderArticle)}
     </div>
   );
 }
